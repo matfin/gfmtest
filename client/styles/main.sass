@@ -52,6 +52,10 @@ button
 /**
  *	Editing pane
  */
+
+form
+	padding: 1rem
+
 .edit 
 	+display(flex)
 	+flex-direction(row)
@@ -67,15 +71,26 @@ button
 		position: relative
 		+flex(7)
 	&:last-child
+		padding: 0.5rem 0
 		+flex(1)
 
+.preview__form__fieldset
+	position: relative
+	+flex(1)
+
 button 
+	float: right
 	background-color: #326de5
 	color: #fff
 	padding: 0.5rem 1.5rem
 	border-radius: 0.25rem
+	cursor: pointer
 	&:hover
-		background-color: lighten(#326de5, 20%)
+		background-color: lighten(#326de5, 10%)
+
+.post__updated
+	line-height: 2rem
+	margin: 0 1rem
 
 textarea
 	width: 100%
