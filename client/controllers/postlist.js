@@ -6,7 +6,7 @@
  *	@method created
  */
 Template.postlist.onCreated(function() {
-
+	this.subscribe('posts');
 });
 
 /**
@@ -32,5 +32,5 @@ Template.postlist.onDestroyed(function() {
  *	Helper functions
  */
 Template.postlist.helpers({
-
+	posts: () => App.posts.find({}, {sort: {created: -1}})
 });

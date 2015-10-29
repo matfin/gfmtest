@@ -34,3 +34,23 @@ Template.newpost.onDestroyed(function() {
 Template.newpost.helpers({
 
 });
+
+/**
+ *	Template.newpost
+ *	Events
+ */
+Template.newpost.events({
+	'click button': (e, template) => {
+		e.preventDefault();
+		let title 	= template.$('#post_title').val(),
+				content = template.$('#post_content').val(),
+				post 		= new Post(title, content);
+
+		post.commit().then((res) => {
+			console.log(`It worked!: ${res}`);
+		}).catch((err) => {
+			console.log(`Click reports error: ${err}`);
+		});
+		
+	}
+});

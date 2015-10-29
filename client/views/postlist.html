@@ -1,3 +1,5 @@
 <template name="postlist">
-	Post list
+	{{#each posts}}
+		{{>post}}
+	{{/each}}
 </template>
