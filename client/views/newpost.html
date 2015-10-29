@@ -1,15 +1,17 @@
 <template name="newpost">
-	<section class="newpost">
-		<form class="newpost__form">
-			<div class="newpost__form__fieldset">
-				<input type="text" id="post_title" />
-			</div>
-			<div class="newpost__form__fieldset">
+	<section class="edit">
+		<form class="edit__form">
+			<div class="edit__form__fieldset">
 				<textarea id="post_content"></textarea>
 			</div>
-			<div class="newpost__form__fieldset">
+			<div class="edit__form__fieldset">
+				<span>
+					Updated at: <time>11:00am</time>
+				</span>
 				<button>Post</button>
 			</div>
+		</form>
+		<form class="preview__form">
 		</form>
 	</section>
 </template>

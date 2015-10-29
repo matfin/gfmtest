@@ -42,9 +42,8 @@ Template.newpost.helpers({
 Template.newpost.events({
 	'click button': (e, template) => {
 		e.preventDefault();
-		let title 	= template.$('#post_title').val(),
-				content = template.$('#post_content').val(),
-				post 		= new Post(title, content);
+		let content = template.$('#post_content').val(),
+				post 		= new Post(content);
 
 		post.commit().then((res) => {
 			console.log(`It worked!: ${res}`);

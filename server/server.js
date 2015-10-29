@@ -13,6 +13,9 @@ Meteor.publish('posts', () => Core.posts.find());
 Meteor.methods({
 	'update': (post) => {
 		return new Promise((resolve, reject) => {
+
+			post.published = true;
+
 			Core.posts.update({id: post.id}, post, {upsert: true}, (err, res) => {
 				if(err) {
 					reject({
