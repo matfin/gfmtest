@@ -16,7 +16,9 @@ Template.newpost.onCreated(function() {
  */
 Template.newpost.onRendered(function() {
 	this.editor = CodeMirror.fromTextArea(this.find('#post_content'), {
-		mode: 'gfm'
+		mode: 							'gfm',
+		tabMode: 						'indent',
+		lineWrapping: 			true
 	});
 });
 
@@ -34,16 +36,7 @@ Template.newpost.onDestroyed(function() {
  *	Helper functions
  */
 Template.newpost.helpers({
-
-	content: () => Template.instance().post_content.get(),
-
-	editorOptions: function() {
-		return {
-			mode: 'gfm', 
-			lineNumbers: 0
-		}
-	}
-
+	content: () => Template.instance().post_content.get()
 });
 
 /**
@@ -58,9 +51,8 @@ Template.newpost.events({
 		template.post_content.set(content);
 	},
 
-	'dragin .CodeMirror': (e, template) => {
-		console.log('You dragged something in');
-		e.stopPropogation();
+	'drop .CodeMirror': (e, template) => {
+		console.log('Drag end!');
 	},
 
 	'click button': (e, template) => {
