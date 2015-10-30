@@ -53,15 +53,11 @@ button
  *	Editing pane
  */
 
-form
-	padding: 1rem
-
 .edit 
 	+display(flex)
 	+flex-direction(row)
 
 .edit__form,
-.preview__form
 	+display(flex)
 	+flex-direction(column)
 	+flex(1)
@@ -73,10 +69,6 @@ form
 	&:last-child
 		padding: 0.5rem 0
 		+flex(1)
-
-.preview__form__fieldset
-	position: relative
-	+flex(1)
 
 button 
 	float: right
@@ -97,3 +89,9 @@ textarea
 	position: absolute;
 	top: 0
 	bottom: 0
+
+/**
+ *	The preview pane
+ */
+.content__preview
+	+flex(1)

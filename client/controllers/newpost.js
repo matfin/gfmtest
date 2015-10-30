@@ -6,7 +6,7 @@
  *	@method created
  */
 Template.newpost.onCreated(function() {
-
+	this.post_content = new ReactiveVar();
 });
 
 /**
@@ -33,6 +33,17 @@ Template.newpost.onDestroyed(function() {
  */
 Template.newpost.helpers({
 
+	contentMarkdown: () => Template.instance().post_content.get(),
+
+	editorOptions: function() {
+		return {
+			mode: 'gfm', 
+			lineNumbers: 0
+		}
+	},
+
+	editorCode: () => ''
+
 });
 
 /**
@@ -40,16 +51,21 @@ Template.newpost.helpers({
  *	Events
  */
 Template.newpost.events({
+
+	'keyup .CodeMirror': (e, template) => {
+		let content = template.$('#post_content').val();
+		template.post_content.set(content);
+	},
+
 	'click button': (e, template) => {
 		e.preventDefault();
 		let content = template.$('#post_content').val(),
 				post 		= new Post(content);
 
-		post.commit().then((res) => {
-			console.log(`It worked!: ${res}`);
-		}).catch((err) => {
-			console.log(`Click reports error: ${err}`);
-		});
-		
+		// post.commit().then((res) => {
+		// 	console.log(`It worked!: ${res}`);
+		// }).catch((err) => {
+		// 	console.log(`Click reports error: ${err}`);
+		// });
 	}
 });

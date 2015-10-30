@@ -2,7 +2,7 @@
 	<section class="edit">
 		<form class="edit__form">
 			<div class="edit__form__fieldset">
-				<textarea id="post_content"></textarea>
+				{{>CodeMirror id="post_content" options=editorOptions code=editorCode}}
 			</div>
 			<div class="edit__form__fieldset">
 				<span class="post__updated">
@@ -11,10 +11,8 @@
 				<button>Post</button>
 			</div>
 		</form>
-		<form class="preview__form">
-			<div class="preview__form__fieldset">
-				<textarea id="post_preview" readonly></textarea>
-			</div>
-		</form>
+		<div class="content__preview">
+			{{contentMarkdown}}
+		</div>
 	</section>
 </template>

@@ -20,3 +20,5 @@ fourseven:scss
 wolves:bourbon
 iron:router
 check
+perak:codemirror
+reactive-var
