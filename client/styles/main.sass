@@ -57,12 +57,13 @@ button
 	+display(flex)
 	+flex-direction(row)
 
-.edit__form,
+.content__edit
+	padding: 1rem
 	+display(flex)
 	+flex-direction(column)
 	+flex(1)
 
-.edit__form__fieldset
+.content__edit__fieldset
 	&:first-child
 		position: relative
 		+flex(7)
@@ -94,4 +95,5 @@ textarea
  *	The preview pane
  */
 .content__preview
+	padding: 1rem
 	+flex(1)

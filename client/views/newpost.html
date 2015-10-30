@@ -1,20 +1,10 @@
 <template name="newpost">
 	<section class="edit">
-		<form class="edit__form">
-			<div class="edit__form__fieldset">
-				{{>CodeMirror id="post_content" options=editorOptions code=editorCode}}
-			</div>
-			<div class="edit__form__fieldset">
-				<span class="post__updated">
-					Updated at: <time>11:00am</time>
-				</span>
-				<button>Post</button>
-			</div>
-		</form>
+		<div class="content__edit">
+			{{>CodeMirror id="post_content" options=editorOptions code=editorCode}}
+		</div>
 		<div class="content__preview">
-			{{#markdown}}
-				{{content}}
-			{{/markdown}}
+			{{#markdown}}{{content}}{{/markdown}}
 		</div>
 	</section>
 </template>

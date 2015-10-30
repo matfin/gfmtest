@@ -55,6 +55,7 @@ Template.newpost.events({
 	'keyup .CodeMirror': (e, template) => {
 		let content = template.$('#post_content').val();
 		template.post_content.set(content);
+		console.log(content);
 	},
 
 	'click button': (e, template) => {
