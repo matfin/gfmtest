@@ -33,7 +33,7 @@ Template.newpost.onDestroyed(function() {
  */
 Template.newpost.helpers({
 
-	contentMarkdown: () => Template.instance().post_content.get(),
+	content: () => Template.instance().post_content.get(),
 
 	editorOptions: function() {
 		return {

@@ -12,7 +12,9 @@
 			</div>
 		</form>
 		<div class="content__preview">
-			{{contentMarkdown}}
+			{{#markdown}}
+				{{content}}
+			{{/markdown}}
 		</div>
 	</section>
 </template>
