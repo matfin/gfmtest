@@ -58,6 +58,11 @@ Template.newpost.events({
 		template.post_content.set(content);
 	},
 
+	'dragin .CodeMirror': (e, template) => {
+		console.log('You dragged something in');
+		e.stopPropogation();
+	},
+
 	'click button': (e, template) => {
 		e.preventDefault();
 		let	editor 	= template.editor, 
