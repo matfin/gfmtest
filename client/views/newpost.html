@@ -1,10 +1,18 @@
 <template name="newpost">
 	<section class="edit">
 		<div class="content__edit">
-			{{>CodeMirror id="post_content" options=editorOptions code=editorCode}}
+			<!-- {{>CodeMirror id="post_content" options=editorOptions reactiveVar=post_content}} -->
+			<textarea id="post_content"></textarea>
 		</div>
 		<div class="content__preview">
 			{{#markdown}}{{content}}{{/markdown}}
 		</div>
+	</section>
+	<section class="control">
+		<span class="post__updated">
+		</span>
+		<button>
+			Post
+		</button>
 	</section>
 </template>

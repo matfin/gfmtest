@@ -15,7 +15,9 @@ Template.newpost.onCreated(function() {
  *	@method rendered
  */
 Template.newpost.onRendered(function() {
-	
+	this.editor = CodeMirror.fromTextArea(this.find('#post_content'), {
+		mode: 'gfm'
+	});
 });
 
 /**
@@ -40,9 +42,7 @@ Template.newpost.helpers({
 			mode: 'gfm', 
 			lineNumbers: 0
 		}
-	},
-
-	editorCode: () => ''
+	}
 
 });
 
@@ -53,20 +53,22 @@ Template.newpost.helpers({
 Template.newpost.events({
 
 	'keyup .CodeMirror': (e, template) => {
-		let content = template.$('#post_content').val();
+		let editor = template.editor,
+				content = editor.getValue();
 		template.post_content.set(content);
-		console.log(content);
 	},
 
 	'click button': (e, template) => {
 		e.preventDefault();
-		let content = template.$('#post_content').val(),
+		let	editor 	= template.editor, 
+				content = template.post_content.get(),
 				post 		= new Post(content);
-
-		// post.commit().then((res) => {
-		// 	console.log(`It worked!: ${res}`);
-		// }).catch((err) => {
-		// 	console.log(`Click reports error: ${err}`);
-		// });
+		post.commit().then((res) => {
+			template.post_content.set('');
+			editor.clearHistory();
+			editor.setValue('');		
+		}).catch((err) => {
+			console.log(`Click reports error: ${err}`);
+		});
 	}
 });

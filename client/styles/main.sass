@@ -38,16 +38,26 @@ body
 	height: 100vh
 
 .view
-	+flex(2)
+	+flex(6)
 
 .edit
+	+flex(3)
+	border-top: 1px solid #222
+	border-bottom: 1px solid #222
+
+.control
 	+flex(1)
+	padding: 1rem
 
 /**
  *	Defaults
  */
 button
 	+resetButton
+
+textarea 
+	border: none
+	resize: none
 
 /**
  *	Editing pane
@@ -58,10 +68,12 @@ button
 	+flex-direction(row)
 
 .content__edit
+	position: relative
 	padding: 1rem
 	+display(flex)
 	+flex-direction(column)
 	+flex(1)
+	border-right: 1px solid #222
 
 .content__edit__fieldset
 	&:first-child
@@ -95,5 +107,16 @@ textarea
  *	The preview pane
  */
 .content__preview
+	overflow: scroll
 	padding: 1rem
 	+flex(1)
+
+/**
+ *	Posts
+ */
+.post
+	border-top: 1px solid #222
+	&:first-child
+		border-top: 0
+	&:last-child
+		border-bottom: 1px solid #222

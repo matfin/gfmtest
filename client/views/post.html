@@ -1,7 +1,5 @@
 <template name="post">
 	<article class="post">
-		<p>
-			{{content}}
-		</p>
+		{{#markdown}}{{content}}{{/markdown}}
 	</article>
 </template>
